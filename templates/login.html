@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <title>Login</title>
+
+    <style>
+        body {
+            background-image: url('../static/homepage.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        #container {
+            background-color: rgb(216, 229, 241);
+            width: 42vw;
+            margin-top: 5%;
+            margin-right: 3%;
+            float: right;
+        }
+        
+        #subtitle {
+            font-family: 'IBM Plex Sans';
+            font-size: 60px;
+            font-weight: 500;
+            padding: 30px;
+            text-align: center;
+        }
+
+        input {
+            margin: 1vw 6.5vw;
+            width: 30vw;
+            height: 60px;
+            font-size: 25px;
+        }
+
+        button {
+            width: 30vw;
+            height: 60px;
+            font-size: 25px;
+            color: white;
+            background-color: rgb(46, 141, 239);
+            text-align: center;
+            margin: 2.5vw 6.5vw;
+        }
+
+        input#login {
+            margin: 2vw 6.5vw;
+            width: 30vw;
+            height: 60px;
+            font-size: 25px;
+            color: white;
+            background-color: rgb(46, 141, 239);
+            text-align: center;
+        }
+
+        hr {
+            background-color: rgba(166,166,166,0.7);
+            width: 35vw;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="container" >
+        <div id = "subtitle">Log In</div>
+        <form method="POST" action="{{ url_for('login_user') }}">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="pwd" placeholder="Password" required><br>
+            <input type="submit" id="login" value="Login">
+        </form>
+
+        {% if error %}
+            <p style="color:red; text-align:center;">{{ error }}</p>
+        {% endif %}
+
+        <hr>
+
+        <form action="{{ url_for('signup') }}" method="GET">
+            <button id="signup" type="submit">Create an account</button>
+        </form>
+
+    </div>
+</body>
+</html>

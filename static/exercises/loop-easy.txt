@@ -1,0 +1,11 @@
+Sum of numbers
+This program is used to add from 0 to n (n is the input number) and print the result.
+
+input: A positive number n
+
+output: Result of adding from 0 to n
+
+Bug location:
+Line 3
+Correct version:
+for i in range(1,11):

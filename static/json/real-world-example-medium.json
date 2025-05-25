@@ -1,0 +1,38 @@
+{
+    "exercise_num": 5,
+    "topic": "Real world example",
+    "level": "medium",
+    "requirement_title": "Grade Calculator",
+    "requirement": "This program will calculate and print the final grades of students of the course Programming for Geographists. In this course, each student earns one or more partial grades. The final grade is determined by those partial grades, as follows:\n\n•\tThe average of the partial grades is calculated (each partial grade has the same weight).\n•\tIf that grade is at least a 5.5 but lower than a 6, the final grade will be a 6-.\n•\tOtherwise, the final grade will be the average grade, rounded to the nearest half.\n\nThe program should print the final grade as either a 6-, or as a float with a single decimal.\n\ninput: Array of grades for a student, as numbers separated by commas: `1,1.0`\n\nexpected output: `The student has a final grade of <average grade>` or a relevant custom error message, where average grade is written either as 6-, or a float with one decimal. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
+    "code": {
+        "1": "def round_to_nearest_half(f):",
+        "2": "    return int(2 * f + 0.5) / 2",
+        "3": "",
+        "4": "def calculate_average_grade(grades):",
+        "5": "    grade_sum = 0.0",
+        "6": "    for grade in grades:",
+        "7": "        grade_sum += float(grade)",
+        "8": "    return grade_sum / len(grades)",
+        "9": "",
+        "10": "def determine_final_grade(grades):",
+        "11": "    grade = calculate_average_grade(grades)",
+        "12": "    grade = round_to_nearest_half(grade)",
+        "13": "    if 5.5 <= grade < 6.0:",
+        "14": "        return \"6-\"",
+        "15": "    else:",
+        "16": "        return str(grade)",
+        "17": "",
+        "18": "grades = input(\"Please enter grades and seperated by commas: \").split(',')",
+        "19": "print(\"The student has a final grade of %s\" % (determine_final_grade(grades)))"
+    },
+    "bug_location": ["12"],
+    "correct_version": {
+        "15-16": "    grade = round_to_nearest_half(grade)"
+    },
+    "expected_inputs": [
+        "5.3"
+    ],
+    "hints": [
+        "Check what happen if average grade is in 5-5.5"
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "exercise_num": 3,
+    "topic": "Function",
+    "level": "hard",
+    "requirement_title": "Prime decomposition",
+    "requirement": "A prime number is an integer that is greater than one, and that can only be divided by the number one and by itself. According to the fundamental theory of arithmetic, every positive integer can be calculated by multiplying prime numbers together. For example, the number 126 can be written as 2 * 3 * 3 * 7. This process is called prime decomposition.\n\nThis program will determine which prime numbers need to be multiplied together to calculate a specified number.\n\ninput: Positive integer larger than 1, to be decomposed into primes.\n\nexpected output: Prime decomposition: `a * b * c...` for primes a, b, c... that compose the input number. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
+    "code": {
+        "1": "def is_prime(n):",
+        "2": "    for i in range(2, n):",
+        "3": "        if n % i == 0:",
+        "4": "            return False",
+        "5": "    return True",
+        "6": "",
+        "7": "def primes_below(n):",
+        "8": "    primes = []",
+        "9": "    for p in range(2, n):",
+        "10": "        if is_prime(p):",
+        "11": "            primes += [p]",
+        "12": "    return primes",
+        "13": "",
+        "14": "def prime_factors(n):",
+        "15": "    factors = []",
+        "16": "    for prime in primes_below(n):",
+        "17": "        while n % prime == 0:",
+        "18": "            factors += [prime]",
+        "19": "            n //= prime",
+        "20": "    return factors",
+        "21": "",
+        "22": "num = int(input(\"Please enter an integer: \"))",
+        "23": "",
+        "24": "print(\"The number %d can calculated by the following multiplication of prime numbers:\" % num)",
+        "25": "",
+        "26": "product = \"\"",
+        "27": "for factor in prime_factors(num):",
+        "28": "    product += \" * \" + str(factor)",
+        "29": "",
+        "30": "print(product[3:])"
+    },
+    "bug_location": ["9"],
+    "correct_version": {
+        "9": "    for p in range(2, n + 1):"
+    },
+    "expected_inputs": [
+        "2"
+    ],
+    "hints": [
+        "Check what happen if the input already is a prime number"
+    ]
+}

@@ -1,0 +1,10 @@
+Check age and grant access
+This program is checking if a user is equal or older than 18.
+
+input: the user's age in years
+expected output: "You are an adult." and "Access granted" if user is equal or older than 18; nothing if user is younger than 18.
+
+Bug location:
+Line 5
+Correct version:
+    print("Access granted.")

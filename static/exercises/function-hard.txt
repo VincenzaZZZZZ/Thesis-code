@@ -1,0 +1,13 @@
+# Prime decomposition
+A prime number is an integer that is greater than one, and that can only be divided by the number one and by itself. According to the fundamental theory of arithmetic, every positive integer can be calculated by multiplying prime numbers together. For example, the number 126 can be written as 2 * 3 * 3 * 7. This process is called prime decomposition.
+
+This program will determine which prime numbers need to be multiplied together to calculate a specified number.
+
+input: Positive integer larger than 1, to be decomposed into primes.
+
+expected output: Prime decomposition: `a * b * c...` for primes a, b, c... that compose the input number. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs
+
+Bug location:
+Line 9
+Correct version:
+    for p in range(2, n + 1):

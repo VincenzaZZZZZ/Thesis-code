@@ -1,0 +1,26 @@
+{
+    "exercise_num": 2,
+    "topic": "Loop",
+    "level": "easy",
+    "requirement_title": "Sum of numbers",
+    "requirement": "This program is used to add from 0 to n (n is the input number) and print the result.\n\ninput: A positive number n\n\noutput: Result of adding from 0 to n. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
+    "code": {
+        "1": "n = int(input(\"Please enter a positive number: \"))",
+        "2": "result = 0",
+        "3": "",
+        "4": "for i in range(n):",
+        "5": "    result += i",
+        "6": "",
+        "7": "print(result)"
+    },
+    "bug_location": ["4"],
+    "correct_version": {
+        "4": "for i in range(n+1):"
+    },
+    "expected_inputs": [
+        "all"
+    ],
+    "hints": [
+        "Check the range"
+    ]
+}

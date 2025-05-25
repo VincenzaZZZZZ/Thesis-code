@@ -1,0 +1,41 @@
+{
+    "exercise_num": 1,
+    "topic": "If-statement",
+    "level": "hard",
+    "requirement_title": "Cinema Tickets",
+    "requirement": "This program will calculate the ticket price for customers who are coming to watch a movie at the VU cinema. Ticket prices are determined by the age of the customers, as follows:\n\n•\tTickets for people 11 years or below cost €8,50\n•\tTickets for people between 12 and 64 years cost €11,-\n•\tTickets for people 65 years or older cost €9,50\n\nChildren under 4 years old are not allowed in the cinema. When 4 or more tickets are bought at the same time, a 10% family discount is given. The program should print the final price that has to be paid for the tickets.\n\ninput: Ages of the customers, as positive integers separated by commas. `1,2,3,4`\n\nexpected output: `Amount to be paid: <total price> euro`. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
+    "code": {
+        "1": "customer_ages = input(\"Please enter customer ages and seperated by commas: \")",
+        "2": "customer_ages = customer_ages.split(\",\")",
+        "3": "total_price = 0",
+        "4": "",
+        "5": "for customer_age in customer_ages:\n",
+        "6": "    customer_age = int(customer_age)\n",
+        "7": "",
+        "8": "    if customer_age < 4:",
+        "9": "        print(\"Small children are not allowed in this cinema!\")",
+        "10": "        exit(1)",
+        "11": "    elif customer_age <= 11:",
+        "12": "        total_price += 8.50",
+        "13": "    elif customer_age <= 64:",
+        "14": "        total_price += 11.00",
+        "15": "    elif customer_age > 65:",
+        "16": "        total_price += 9.50",
+        "17": "",
+        "18": "if len(customer_ages) >= 4:",
+        "19": "    print(\"Discount: 10% (family discount)\")",
+        "20": "    total_price *= 0.9",
+        "21": "",
+        "22": "print(\"Amount to be paid: %.2f euro\" % total_price)"
+    },
+    "bug_location": ["15"],
+    "correct_version": {
+        "15": "    elif customer_age >= 65:"
+    },
+    "expected_inputs": [
+        "65"
+    ],
+    "hints": [
+        "Check the price for seniors"
+    ]
+}

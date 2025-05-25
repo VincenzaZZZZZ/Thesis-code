@@ -1,0 +1,40 @@
+{
+    "exercise_num": 2,
+    "topic": "Loop",
+    "level": "hard",
+    "requirement_title": "Third smallest",
+    "requirement": "This program will determine which number is the third smallest number that was entered.\n\ninput: Array of integers separated by commas. There should be at least 3 numbers entered, and the first 3 numbers should be sorted from lowest to highest. No duplicate numbers are allowed.\n\nexpected output: The program will print the third smallest number that was entered. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
+    "code": {
+        "1": "numbers = input(\"Please enter numbers and seperated by commas: \")",
+        "2": "numbers = numbers.split(',')",
+        "3": "",
+        "4": "smallest = int(numbers[0])",
+        "5": "second_smallest = int(numbers[1])",
+        "6": "third_smallest = int(numbers[2])",
+        "7": "",
+        "8": "for number in numbers[3::]:",
+        "9": "    number = int(number)",
+        "10": "",
+        "11": "    if number < smallest:",
+        "12": "        third_smallest = second_smallest",
+        "13": "        second_smallest = smallest",
+        "14": "        smallest = number",
+        "15": "    elif number < second_smallest:",
+        "16": "        third_smallest = second_smallest",
+        "17": "        second_smallest = number",
+        "18": "    else:",
+        "19": "        third_smallest = number",
+        "20": "",
+        "21": "print(\"The third smallest number is %d\" % third_smallest)"
+    },
+    "bug_location": ["18"],
+    "correct_version": {
+        "15": "        elif number < third_smallest:"
+    },
+    "expected_inputs": [
+        "1,2,3,4"
+    ],
+    "hints": [
+        "Check what happen if there is a number larger than the third smallest number"
+    ]
+}

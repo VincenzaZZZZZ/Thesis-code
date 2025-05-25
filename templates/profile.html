@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Jersey+15&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <title>Profile: {{ username }}</title>
+
+    <style>
+        {#Background CSS#}
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(to bottom, #c2e9fb, #a1c4fd);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .small-logo {
+            position: absolute;
+            top: 0.3vw;
+            left: 0.3vw;
+            width: 25vw;
+        }
+
+        .grass-bg {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            height: auto;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bugnet-icon {
+            position: fixed;
+            bottom: 0.1vw;
+            right: 0.1vw;
+            width: 8vw;
+            height: auto;
+            z-index: 10;
+        }
+
+        {#navbar CSS#}
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            color: black;
+            font-family: 'Jersey 15';
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 4vw;
+            background-color: transparent;
+        }
+
+        #nav-right {
+            position: absolute;
+            top: 2vw;
+            right: 5vw;
+        }
+
+        #username-label {
+            margin-right: 1vw;
+            font-size: 2vw;
+        }
+
+        #menu-select {
+            font-family: 'Jersey 15';
+            font-size: 1vw;
+            padding: 0.3vw;
+            text-align: center;
+        }
+
+        {#Page content CSS#}
+        #page-content {
+            padding-top: 5vw;
+        }
+
+        {#Left Exercise CSS#}
+        .icons img {
+            width: 30px;
+            margin-left: 10px;
+        }
+
+        .exercise-container {
+            background-color: rgb(216, 229, 241);
+            width: 45vw;
+            float: left;
+            margin: 1vw;
+            padding: 1vw;
+            margin-left: 3vw;
+        }
+
+        .exercise-grid-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1vw;
+            font-family: 'Jersey 15';
+            font-size: 1.8vw;
+            font-weight: 100;
+        }
+
+        .exercise-grid-table th, .exercise-grid-table td {
+            text-align: center;
+            padding: 1vw;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .exercise-grid-table img {
+            width: 5vw;
+            height: auto;
+        }
+
+        {#Right Part CSS#}
+        .right-panel {
+            width: 45vw;
+            float: right;
+            padding: 1vw;
+            margin-right: 3vw;
+        }
+
+        .leaderboard-box,
+        .badges-box,
+        .points-box {
+            background-color: rgba(216, 229, 241, 0.8);
+            border-radius: 10px;
+            padding: 1vw;
+            margin-bottom: 1.5vw;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .pixel-font {
+            font-family: 'Jersey 15';
+            font-size: 4vw;
+        }
+
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1vw;
+            font-size: 1.5vw;
+        }
+
+        .leaderboard-table tr {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .leaderboard-table th {
+            border-bottom: 2px solid #333;
+        }
+
+        .leaderboard-table th, .leaderboard-table td {
+            padding: 0.5vw;
+            text-align: center;
+        }
+
+        .badge-images img {
+            width: 8vw;
+            margin-right: 10px;
+        }
+
+        .points-number {
+            font-size: 6vw;
+            text-align: center;
+            font-family: "Jersey 15";
+            font-weight: 100;
+            padding: 2vw;
+        }
+
+        .badge-points-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1vw;
+        }
+
+        .badges-box {
+            flex: 2;
+        }
+
+        .points-box {
+            flex: 2;
+        }
+    </style>
+</head>
+
+<body>
+    {#Navbar#}
+    <div id="navbar">
+        <div id="nav-right">
+            <span id="username-label">{{ username }}</span>
+            <select id="menu-select">
+                <option disabled selected>Profile</option>
+                <option value="/badges">Badges</option>
+                <option value="/information">Information</option>
+                <option value="/logout">Log Out</option>
+            </select>
+        </div>
+
+        <img src="../static/simple-logo.png" alt="small-logo" class="small-logo">
+    </div>
+
+    <div id="page-content">
+        {#Left Exercise Section#}
+        <div class="exercise-container">
+            <table class="exercise-grid-table">
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Topic</th>
+                        <th>Easy</th>
+                        <th>Medium</th>
+                        <th>Hard</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(1, 6) %}
+                        <tr>
+                            <td>Exercise {{ i }}</td>
+                            <td>{{ ['If-statement','Loop','Function','Sorting','Real world example'][i-1] }}</td>
+
+                            <td>
+                                <a href="{{ url_for('exercise', filename=(['If-statement','Loop','Function','Sorting','Real world example'][i-1]|lower|replace(' ', '-') ~ '-easy')) }}">
+                                    <img src="{{ url_for('static', filename='badges/caterpillar.png') if progress['Exercise ' ~ i][0] else url_for('static', filename='badges/caterpillar-grey.png') }}">
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="{{ url_for('exercise', filename=(['If-statement','Loop','Function','Sorting','Real world example'][i-1]|lower|replace(' ', '-') ~ '-medium')) }}">
+                                  <img src="{{ url_for('static', filename='badges/cocoon.png') if progress['Exercise ' ~ i][1] else url_for('static', filename='badges/cocoon-grey.png') }}">
+                                </a>
+                            </td>
+
+                            <td>
+                                {% set moth_img = 'badges/moth' ~ i|string ~ '.png' %}
+                                {% set moth_img_grey = 'badges/moth' ~ i|string ~ '-grey.png' %}
+                                <a href="{{ url_for('exercise', filename=(['If-statement','Loop','Function','Sorting','Real world example'][i-1]|lower|replace(' ', '-') ~ '-hard')) }}">
+                                    <img src="{{ url_for('static', filename=moth_img) if progress['Exercise ' ~ i][2] else url_for('static', filename=moth_img_grey) }}">
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="right-panel">
+            {#Right Leaderboard Section#}
+            <div class="leaderboard-box">
+                <h2 class="pixel-font">LEADERBOARD</h2>
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr><th>Rank</th><th>Name</th><th>Points</th><th>Working on</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for user in leaderboard %}
+                            <tr>
+                                <td><strong>{{ loop.index }}</strong></td>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.points }}</td>
+                                <td>Exercise {{ user.working_on }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {#Right Badge+Points Section#}
+            <div class="badge-points-row">
+                {#Right Badge Section#}
+                <a href="{{ url_for('badges') }}" style="text-decoration: none; color: inherit;">
+                    <div class="badges-box">
+                        <h2 class="pixel-font">BADGES</h2>
+                        <div class="badge-images">
+                            {% for badge in badges %}
+                                <img src="{{ url_for('static', filename=badge) }}">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </a>
+
+                {#Right Points Section#}
+                <div class="points-box">
+                    <h2 class="pixel-font">POINTS</h2>
+                    <div class="points-number">{{ points }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#Background img#}
+    <img src="{{ url_for('static', filename='bugnet.png') }}" class="bugnet-icon">
+    <img src="{{ url_for('static', filename='grass.png') }}" class="grass-bg">
+
+
+    <script>
+        document.getElementById('menu-select').addEventListener('change', function () {
+            const selected = this.value
+            if (selected) {
+                window.location.href = selected
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Jersey+15&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <title>Information</title>
+
+    <style>
+
+        body {
+            height: 100vh;
+            background: linear-gradient(to bottom, #c2e9fb, #a1c4fd);
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            color: black;
+            font-family: 'Jersey 15';
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #nav-right {
+            position: absolute;
+            top: 2vw;
+            right: 5vw;
+        }
+
+        #username-label {
+            margin-right: 1vw;
+            font-size: 2vw;
+        }
+
+        #menu-select {
+            font-family: 'Jersey 15';
+            font-size: 1vw;
+            padding: 0.3vw;
+            text-align: center;
+        }
+
+        .small-logo {
+            position: absolute;
+            top: 0.3vw;
+            left: 0.3vw;
+            width: 25vw;
+        }
+
+        div#container {
+            background-color: rgba(216, 229, 241, 0.7);
+            width: 90vw;
+            margin: 3vw;
+        }
+
+        div#text {
+            font-family: 'Jersey 15';
+            font-size: 2vw;
+            padding: 3vw;
+        }
+
+        #heading {
+            margin-top: 8vw;
+            font-family: 'Pixelify Sans';
+            text-align: center;
+            font-size: 4vw;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div id="nav-right">
+            <span id="username-label">{{ username }}</span>
+            <select id="menu-select">
+                <option disabled selected>Information</option>
+                <option value="/profile">Profile</option>
+                <option value="/badges">Badges</option>
+                <option value="/logout">Log Out</option>
+            </select>
+        </div>
+    </div>
+
+    <img src="../static/simple-logo.png" alt="small-logo" class="small-logo">
+
+    <h1 id="heading">Information</h1>
+
+    <div id="container" >
+        <div id="text">
+            This is a web application for learning how to program in Python by debugging. <br>
+            There are three levels: easy (caterpillar) - medium (cocoon) - hard (moth). <br>
+            The level icon is initially black and white. After you pass it, it will become colourful. <br>
+            If you pass the hard level, you will get a moth as a badge ,and you can see them on the badges page. <br>
+            The points are calculated depending on level you passed. You will get 10 points for easy levels, 20 points for medium levels and 30 points for hard levels. If you use the 'HINTS' button, 3 points will be deducted for that level. Every level will have one hint and the points will be only deducted once each level. <br>
+            The points are used to get the rank on the leaderboard. The leaderboard will show the top 5 students. During the debugging, you are expected to find the location of the bug, give the input(s) that leads to incorrect output and correct the given code to make it run properly. If you think your answer is correct, you can use the 'Report a problem' button to upload your answer to let the teacher manually check.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('menu-select').addEventListener('change', function () {
+            const selected = this.value
+            if (selected) {
+                window.location.href = selected
+            }
+        });
+    </script>
+</body>
+</html>

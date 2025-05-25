@@ -1,0 +1,35 @@
+{
+    "exercise_num": 5,
+    "topic": "Real world example",
+    "level": "easy",
+    "requirement_title": "Plane landing",
+    "requirement": "This program will determine how safe it is for a plane to land, based on the wind speed and the pressure of the plane. These two components are used to calculate the risk factor, as follows:\n\nrisk factor = 5 * wind speed + 4 * pressure\n\nBased on the risk factor, the program should then print one of the following instructions:\n\n•\tIf the risk factor is not higher than 37, the plane can land.\n•\tIf the risk factor is higher than 37 but less than 46, the plane will not be able to land safely and therefore should stay in the air, waiting for better conditions.\n•\tIf the risk factor is 46 or higher than the plane should fly to another airport.\n\n\ninput: Integer in the range of 0 to 10, representing the wind speed in km/h and Integer in the range of 0 to 10, representing the air pressure in hPa, divided by comma\n\nexpected output: `Stay in the air` or `Fly to another airport` or `Land as soon as possible`. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
+    "code": {
+        "1": "def total_risk(wind, pressure):",
+        "2": "    risk = 5 * wind + 4 * pressure",
+        "3": "    return risk",
+        "4": "",
+        "5": "inputs = input(\"Please enter wind speed and pressure in order, seperated by commas: \")",
+        "6": "inputs = inputs.split(',')",
+        "7": "wind_speed = int(inputs[0])",
+        "8": "pressure = int(inputs[1])",
+        "9": "",
+        "10": "risk = total_risk(pressure, wind_speed)",
+        "11": "if 37 < risk < 46:",
+        "12": "    print(\"Stay in the air\")",
+        "13": "elif risk >= 46:",
+        "14": "    print(\"Fly to another airport\")",
+        "15": "else:",
+        "16": "    print(\"Land as soon as possible\")"
+    },
+    "bug_location": ["10"],
+    "correct_version": {
+        "10": "risk = total_risk(wind_speed, pressure)"
+    },
+    "expected_inputs": [
+        "1,2"
+    ],
+    "hints": [
+        "Check if the usage of function is correct"
+    ]
+}

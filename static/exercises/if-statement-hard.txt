@@ -1,0 +1,11 @@
+Cinema Tickets
+This program will calculate the ticket price for customers who are coming to watch a movie at the VU cinema. Ticket prices are determined by the age of the customers, as follows:
+
+•	Tickets for people 11 years or below cost €8,50
+•	Tickets for people between 12 and 64 years cost €11,-
+•	Tickets for people 65 years or older cost €9,50
+
+Children under 4 years old are not allowed in the cinema. When 4 or more tickets are bought at the same time, a 10% family discount is given. The program should print the final price that has to be paid for the tickets.
+
+input: Ages of the customers, as positive integers separated by commas. `1,2,3,4`
+expected output: `Amount to be paid: <total price> euro`. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs

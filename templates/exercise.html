@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Jersey+15&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <title>Exercise {{ exercise_num }}: {{ topic }} - {{ level }}</title>
+
+    <style>
+        body {
+            height: 100vh;
+            background: linear-gradient(to bottom, #c2e9fb, #a1c4fd);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            color: black;
+            font-family: 'Jersey 15';
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 4vw;
+            background-color: transparent;
+        }
+
+        #page-content {
+            padding-top: 5vw;
+        }
+
+        #nav-right {
+            position: absolute;
+            top: 2vw;
+            right: 5vw;
+        }
+
+        #username-label {
+            margin-right: 1vw;
+            font-size: 2vw;
+        }
+
+        #menu-select {
+            font-family: 'Jersey 15';
+            font-size: 1vw;
+            padding: 0.3vw;
+            text-align: center;
+        }
+
+        .small-logo {
+            position: absolute;
+            top: 0.3vw;
+            left: 0.3vw;
+            width: 25vw;
+        }
+
+        #title {
+            position: absolute;
+            top: 4vw;
+            left: 2vw;
+            font-family: 'Jersey 15';
+            font-size: 2vw;
+            font-weight: 100;
+        }
+
+        .container {
+            background-color: rgb(216, 229, 241);
+            width: 40vw;
+            padding: 2vw;
+            margin: 1vw 2vw;
+            height: 30vw;
+        }
+
+        #container-requirement {
+            float: left;
+            font-size: 1.5vw;
+        }
+
+        #container-code {
+            float: right;
+            font-size: 1vw;
+        }
+
+        #exercise-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-top: 2vw;
+        }
+
+        .divider {
+            width: 2px;
+            background-color: gray;
+            height: 34vw;
+            margin-top: 1vw;
+        }
+
+        #bug-location, #bug-input {
+            display: flex;
+            align-items: center;
+            gap: 1vw;
+            margin: 1vw 0;
+            padding: 0 2vw;
+            font-size: 1.5vw;
+            font-weight: bold;
+        }
+
+        #bug-location input, #bug-input input {
+            flex: 1;
+            padding: 0.5vw;
+            font-size: 1vw;
+        }
+
+        button{
+            float: right;
+            padding: 0.5vw;
+            height: 2vw;
+            margin: 0.2vw;
+            color: white;
+            background-color: #6c7075;
+        }
+
+        button#hints {
+            margin-right: 3vw;
+        }
+
+        .center-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #submit {
+            color: white;
+            background-color: #2e8def;
+            text-align: center;
+            height: 2vw;
+            padding: 0 0.5vw;
+            font-size: 1.5vw;
+            margin-bottom: 1vw;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1em;
+        }
+
+        th, td {
+            padding: 0.5em;
+            font-family: monospace;
+        }
+
+        .code-block {
+            margin: 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: rgb(216, 229, 241);
+            font-size: 1vw;
+        }
+
+        .code-scroll {
+            max-height: 30vw;
+            overflow-y: auto;
+            padding-right: 0.5vw;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <div id="navbar">
+        <div id="nav-right">
+            <span id="username-label">{{ username }}</span>
+            <select id="menu-select">
+                <option disabled selected>Exercise</option>
+                <option value="/profile">Profile</option>
+                <option value="/badges">Badges</option>
+                <option value="/information">Information</option>
+                <option value="/logout">Log Out</option>
+            </select>
+        </div>
+
+        <img src="../static/simple-logo.png" alt="small-logo" class="small-logo">
+    </div>
+
+    <div id="page-content">
+        <h1 id="title">Exercise {{ exercise_num }} : {{ topic }} - {{ level }}</h1>
+
+        <div id="exercise-section">
+            <div class="container" id="container-requirement">
+                <div class="code-scroll">
+                    <p><strong>{{ requirement_title }}</strong></p>
+                    <pre class="code-block">{{ requirement | e }}</pre>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="container" id="container-code">
+                <div class="code-scroll">
+                    <table>
+                        <thead>
+                            <tr><th>Line</th><th>Code</th></tr>
+                        </thead>
+                        <tbody>
+                            {% for line_num, line_code in code.items() %}
+                            <tr>
+                                <td>{{ line_num }}</td>
+                                <td><pre class="code-block">{{ line_code | e }}</pre></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <button id="hints">💡HINTS</button>
+        <button id="report">Report a problem</button>
+
+        <form method="POST">
+            <div id="bug-location">
+                <div>Bug located in line(s):</div>
+                <input type="text" id="bug-position" name="bug-position" placeholder="Please enter numbers and divided by comma(',')">
+            </div>
+
+
+            <div id="bug-input">
+                <div>Which input(s) will show this bug:</div>
+                <input type="text" id="bug-input-text" name="bug-input-text" placeholder="Please enter input(s) and divided by comma(','); for the program which have bug for every inputs, put 'all' here">
+            </div>
+
+            <div class="center-wrapper">
+                <input type="hidden" id="used_hint" name="used_hint" value="false">
+                <input type="submit" id="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+        document.getElementById('menu-select').addEventListener('change', function () {
+            const selected = this.value;
+            if (selected) {
+                window.location.href = selected;
+            }
+        })
+
+        document.getElementById('report').addEventListener('click', function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Report a problem',
+                html: `
+                    <p>Please send an email to:</p>
+                    <strong id="email">q3.zhu@student.vu.nl</strong>
+                    <br><br>
+                    <button onclick="copyEmail()" style="margin-top:10px; padding:5px 10px; background-color:#3085d6; color:white; border:none; border-radius:4px;">Copy Email</button>
+                `,
+                icon: 'info',
+                showConfirmButton: false
+            })
+        })
+
+        function copyEmail() {
+            const email = document.getElementById("email").innerText;
+            navigator.clipboard.writeText(email).then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Copied!',
+                    text: 'Email address copied to clipboard.',
+                    timer: 1500,
+                    showConfirmButton: false
+                })
+            })
+        }
+
+        document.addEventListener("DOMContentLoaded", function (){
+            const hints = {{ hints | tojson }}
+
+            const hintButton = document.getElementById("hints")
+
+            if (hintButton) {
+                hintButton.addEventListener("click", function (e){
+                    e.preventDefault()
+                    document.getElementById("used_hint").value = "true"
+                    if (hints.length > 0) {
+                        Swal.fire({
+                            html: hints.map(h => `<p>${h}</p>`).join(''),
+                            icon: 'info',
+                            confirmButtonText: 'Got it'
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'No hints available',
+                            icon: 'info',
+                        })
+                    }
+                })
+            }
+        })
+
+    </script>
+
+    {% if feedback %}
+    <script>
+        window.onload = function() {
+            Swal.fire({
+                title: 'Feedback',
+                text: "{{ feedback }}",
+                icon: "{{ 'success' if 'Good Job' in feedback else 'error' }}",
+                confirmButtonText: 'OK'
+            })
+        }
+    </script>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+    "exercise_num": 1,
+    "topic": "If-statement",
+    "level": "medium",
+    "requirement_title": "Grade evaluation",
+    "requirement": "This program is used to determine the level of a student's grade.\n\nThe input is a student's grade and output is the level of this grade in from the following list.\nGrade A: 90-100\nGrade B: 80-89\nGrade C: 70-79\nGrade D: 60-69\nGrade F: less than 60\n\nFor example, if the input is 85, the output should be \"Grade: B\"\n\ninput: student's grade in range 0-100\n\nexpected output: \"Grade: X\", X is A-F depends on the input. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
+    "code": {
+        "1": "score = int(input(\"Enter your score (0-100): \"))",
+        "2": "",
+        "3": "if score > 90:",
+        "4": "    print(\"Grade: A\")",
+        "5": "elif score >= 80:",
+        "6": "    print(\"Grade: B\")",
+        "7": "elif score >= 70:",
+        "8": "    print(\"Grade: C\")",
+        "9": "elif score >= 60:",
+        "10": "    print(\"Grade: D\")",
+        "11": "else:",
+        "12": "    print(\"Grade: F\")"
+    },
+    "bug_location": ["3"],
+    "correct_version": {
+        "3": "if score >= 90:"
+    },
+    "expected_inputs": ["90"],
+    "hints": ["Check the grade range for Grade A"]
+}

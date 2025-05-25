@@ -1,0 +1,18 @@
+Grade evaluation
+This program is used to determine the level of a student's grade.
+
+The input is a student's grade and output is the level of this grade in from the following list.
+Grade A: 90-100
+Grade B: 80-89
+Grade C: 70-79
+Grade D: 60-69
+Grade F: less than 60
+
+For example, if the input is 85, the output should be "Grade: B"
+input: student's grade in range 0-100
+expected output: "Grade: X", X is A-F depends on the input
+
+Bug location:
+Line 3
+Correct version:
+if score >= 90:

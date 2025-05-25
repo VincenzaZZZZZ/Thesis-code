@@ -1,0 +1,20 @@
+{
+    "exercise_num": 1,
+    "topic": "If-statement",
+    "level": "easy",
+    "requirement_title": "Check age and grant access",
+    "requirement": "This program is checking if a user is equal or older than 18.\n\ninput: the user's age in years \n\nexpected output: \"You are an adult.\" and \"Access granted\" if user is equal or older than 18; nothing if user is younger than 18. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
+    "code": {
+        "1": "user_age = int(input(\"Enter your age: \"))",
+        "2": " ",
+        "3": "if user_age >= 18:",
+        "4": "    print(\"You are an adult.\")",
+        "5": "print(\"Access granted.\")"
+    },
+    "bug_location": ["5"],
+    "correct_version": {
+        "5": "    print(\"Access granted.\")"
+    },
+    "expected_inputs": ["0-17"],
+    "hints": ["Check if the access is granted for user under 18"]
+}

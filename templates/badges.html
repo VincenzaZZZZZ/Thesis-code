@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Jersey+15&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+
+    <title>Badges</title>
+
+    <style>
+        body {
+            background-image: url('../static/badge-bg.png');
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .small-logo {
+            position: absolute;
+            top: 0.3vw;
+            left: 0.3vw;
+            width: 30vw;
+        }
+
+        {#navbar CSS#}
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            color: black;
+            font-family: 'Jersey 15';
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 4vw;
+            background-color: transparent;
+        }
+
+        #nav-left {
+            position: absolute;
+            top: 2.7vw;
+            left: 35vw;
+        }
+
+        #username-label {
+            margin-right: 1vw;
+            font-size: 3vw;
+            color: white;
+            padding: 0.2vw;
+        }
+
+        #menu-select {
+            font-family: 'Jersey 15';
+            font-size: 1vw;
+            padding: 0.3vw;
+            text-align: center;
+        }
+
+        #moth1 {
+            position: absolute;
+            width: 10vw;
+            top: 11.5vw;
+            left: 10vw;
+        }
+
+        #frame1 {
+            width: 20vw;
+            height: 15vw;
+            position: absolute;
+            top: 10vw;
+            left: 5vw
+        }
+
+        #if {
+            position: absolute;
+            top: 19.5vw;
+            left: 11.5vw;
+            font-family: "Pixelify Sans";
+            font-size: 1vw;
+        }
+
+        #moth2 {
+            position: absolute;
+            width: 10vw;
+            top: 13.5vw;
+            left: 35vw;
+        }
+
+        #frame2 {
+            width: 20vw;
+            height: 15vw;
+            position: absolute;
+            top: 12vw;
+            left: 30vw
+        }
+
+        #loop {
+            position: absolute;
+            top: 21.8vw;
+            left: 39vw;
+            font-family: "Pixelify Sans";
+            font-size: 1vw;
+        }
+
+        #moth3 {
+            position: absolute;
+            width: 10vw;
+            top: 30vw;
+            left: 11vw;
+        }
+
+        #frame3 {
+            width: 15vw;
+            height: 20vw;
+            position: absolute;
+            top: 27vw;
+            left: 8.5vw
+        }
+
+        #function {
+            position: absolute;
+            top: 39vw;
+            left: 14vw;
+            font-family: "Pixelify Sans";
+            font-size: 1vw;
+        }
+
+        #moth4 {
+            position: absolute;
+            width: 10vw;
+            top: 21vw;
+            left: 57.5vw;
+        }
+
+        #frame4 {
+            width: 15vw;
+            height: 20vw;
+            position: absolute;
+            top: 18vw;
+            left: 55vw
+        }
+
+        #sorting {
+            position: absolute;
+            top: 30vw;
+            left: 60.5vw;
+            font-family: "Pixelify Sans";
+            font-size: 1vw;
+        }
+
+        #moth5 {
+            position: absolute;
+            width: 10vw;
+            top: 32.5vw;
+            left: 33vw;
+        }
+
+        #frame5 {
+            width: 20vw;
+            height: 15vw;
+            position: absolute;
+            top: 31vw;
+            left: 28vw
+        }
+
+        #real-world {
+            position: absolute;
+            top: 41vw;
+            left: 34vw;
+            font-family: "Pixelify Sans";
+            font-size: 1vw;
+        }
+
+    </style>
+</head>
+<body>
+    {#Navbar#}
+    <div id="navbar">
+        <div id="nav-left">
+            <span id="username-label">{{ username }}</span>
+            <select id="menu-select">
+                <option disabled selected>Badges</option>
+                <option value="/profile">Profile</option>
+                <option value="/information">Information</option>
+                <option value="/logout">Log Out</option>
+            </select>
+        </div>
+
+        <img src="../static/simple-logo.png" alt="small-logo" class="small-logo">
+    </div>
+
+    <div id="moth1-set">
+        <img src="../static/frame.png" alt="frame" id="frame1" class="frame-original">
+        <img src="{{ url_for('static', filename='badges/moth1.png') if progress['Exercise 1'][2] else url_for('static', filename='badges/empty.png') }}" alt="moth1" id="moth1" class="moth">
+        <p id="if">If-statement</p>
+    </div>
+
+    <div id="moth2-set">
+        <img src="../static/frame.png" alt="frame" id="frame2" class="frame-original">
+        <img src="{{ url_for('static', filename='badges/moth2.png') if progress['Exercise 2'][2] else url_for('static', filename='badges/empty.png') }}" alt="moth2" id="moth2" class="moth">
+        <p id="loop">Loop</p>
+    </div>
+
+    <div id="moth3-set">
+        <img src="../static/frame.png" alt="frame" id="frame3" class="frame-original">
+        <img src="{{ url_for('static', filename='badges/moth3.png') if progress['Exercise 3'][2]else url_for('static', filename='badges/empty.png') }}" alt="moth3" id="moth3" class="moth">
+        <p id="function">Function</p>
+    </div>
+
+    <div id="moth4-set">
+        <img src="../static/frame.png" alt="frame" id="frame4" class="frame-original">
+        <img src="{{ url_for('static', filename='badges/moth4.png') if progress['Exercise 4'][2] else url_for('static', filename='badges/empty.png') }}" alt="moth4" id="moth4" class="moth">
+        <p id="sorting">Sorting</p>
+    </div>
+
+    <div id="moth5-set">
+        <img src="../static/frame.png" alt="frame" id="frame5" class="frame-original">
+        <img src="{{ url_for('static', filename='badges/moth5.png') if progress['Exercise 5'][2] else url_for('static', filename='badges/empty.png') }}" alt="moth5" id="moth5" class="moth">
+        <p id="real-world">Real world example</p>
+    </div>
+
+    <script>
+        document.getElementById('menu-select').addEventListener('change', function () {
+            const selected = this.value;
+            if (selected) {
+                window.location.href = selected;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Grade Calculator
+This program will calculate and print the final grades of students of the course Programming for Geographists. In this course, each student earns one or more partial grades. The final grade is determined by those partial grades, as follows:
+
+•	The average of the partial grades is calculated (each partial grade has the same weight).
+•	If that grade is at least a 5.5 but lower than a 6, the final grade will be a 6-.
+•	Otherwise, the final grade will be the average grade, rounded to the nearest half.
+
+The program should print the final grade as either a 6-, or as a float with a single decimal.
+
+input: Array of grades for a student, as numbers separated by commas: `1,1.0`
+
+expected output: `The student has a final grade of <average grade>` or a relevant custom error message, where average grade is written either as 6-, or a float with one decimal. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs

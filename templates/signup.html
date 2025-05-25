@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <title>Sign Up</title>
+
+    <style>
+        body {
+            background-image: url('../static/homepage.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        div#container {
+            background-color: rgb(216, 229, 241);
+            width: 42vw;
+            margin-top: 5%;
+            margin-right: 3%;
+            float: right;
+        }
+        
+        div#subtitle {
+            font-family: 'IBM Plex Sans';
+            font-weight: bold;
+            font-size: 60px;
+            font-weight: 500;
+            padding: 30px;
+            text-align: center;
+        }
+
+        input {
+            margin: 1vw 6.5vw;
+            width: 30vw;
+            height: 60px;
+            font-size: 25px;
+        }
+
+        input#submit {
+            width: 30vw;
+            height: 60px;
+            font-size: 25px;
+            color: white;
+            background-color: rgb(46, 141, 239);
+            text-align: center;
+            margin: 2vw 6.5vw;
+        }
+
+    </style>
+    
+</head>
+
+<body>
+    <div id="container" >
+        <div id = "subtitle">Sign Up</div>
+
+        {% if error %}
+            <p style="color:red; text-align:center;">{{ error }}</p>
+        {% endif %}
+
+        <form action="{{ url_for('signup') }}" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <br>
+            <input type="text" name="email" placeholder="Email address" required>
+            <br>  
+            <input type="password" name="pwd" placeholder="Password" required>
+            <br>
+            <input type="password" name="confirmed_pwd" placeholder="Confirm password" required>
+            <br>
+            <input type="submit" name="submit" id="submit" value="Create an account">
+        </form>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+# Plane landing
+This program will determine how safe it is for a plane to land, based on the wind speed and the pressure of the plane. These two components are used to calculate the risk factor, as follows:
+
+risk factor = 5 * wind speed + 4 * pressure
+
+Based on the risk factor, the program should then print one of the following instructions:
+
+•	If the risk factor is not higher than 37, the plane can land.
+•	If the risk factor is higher than 37 but less than 46, the plane will not be able to land safely and therefore should stay in the air, waiting for better conditions.
+•	If the risk factor is 46 or higher than the plane should fly to another airport.
+
+
+input: Integer in the range of 0 to 10, representing the wind speed in km/h and Integer in the range of 0 to 10, representing the air pressure in hPa, divided by comma
+
+expected output: `Stay in the air` or `Fly to another airport` or `Land as soon as possible`. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs
