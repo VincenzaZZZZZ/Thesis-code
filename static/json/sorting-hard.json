@@ -1,0 +1,35 @@
+{
+    "exercise_num": 4,
+    "topic": "Sorting",
+    "level": "hard",
+    "requirement_title": "Quicksort",
+    "requirement": "This program is used to sort the input array into ascending order with quicksort.\nQuickSort is a sorting algorithm based on the Divide and Conquer that picks an element as a pivot and partitions the given array around the picked pivot by placing the pivot in its correct position in the sorted array. It works on the principle of divide and conquer, breaking down the problem into smaller sub-problems.\n\ninput: Array with at least two integer numbers, divided by commas(',')\n\noutput: \"Sorted list is:\" Ascending order array. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs.",
+    "code": {
+        "1": "def quick_sort(arr):",
+        "2": "    if len(arr) <= 1:",
+        "3": "        return arr",
+        "4": "",
+        "5": "    pivot = arr[0]",
+        "6": "    left = [x for x in arr[1:] if x < pivot]",
+        "7": "    right = [x for x in arr[1:] if x > pivot]",
+        "8": "",
+        "9": "    return quick_sort(left) + [pivot] + quick_sort(right)",
+        "10": "",
+        "11": "array = input(\"Please enter numbers and seperated by commas: \")",
+        "12": "array = array.split(',')",
+        "13": "",
+        "14": "print(\"Sorted list is:\")",
+        "15": "print(quick_sort(array))"
+    },
+    "bug_location": ["6", "7"],
+    "correct_version": {
+        "6": "    left = [x for x in arr[1:] if x <= pivot]",
+        "7": "    right = [x for x in arr[1:] if x >= pivot]"
+    },
+    "expected_inputs": [
+        "1,1,3,2,5"
+    ],
+    "hints": [
+        "Check what happen if there are duplicate elements"
+    ]
+}

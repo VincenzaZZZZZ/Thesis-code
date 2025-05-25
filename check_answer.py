@@ -4,14 +4,15 @@ def is_prime(n):
             return False
     return True
 
-def bubble_sort_bug(arr):
-    n = len(arr)
-    for i in range(n - 1):
-        for j in range(0, n - i - 1):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
 
-    return arr
+    pivot = arr[0]
+    left = [x for x in arr[1:] if x < pivot]
+    right = [x for x in arr[1:] if x > pivot]
+
+    return quick_sort(left) + [pivot] + quick_sort(right)
 
 def check_answer(filename, user_inputs, correct_inputs):
     input_correct = False
@@ -71,6 +72,11 @@ def check_answer(filename, user_inputs, correct_inputs):
                 valid_input_count += 1
 
         if valid_input_count == len(submitted_ints):
+            input_correct = True
+
+    elif filename == 'sorting-hard':
+        output_array = quick_sort(submitted_ints)
+        if len(submitted_ints) != len(output_array):
             input_correct = True
 
     elif filename == 'real-world-example-easy':
