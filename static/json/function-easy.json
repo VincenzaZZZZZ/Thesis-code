@@ -1,0 +1,29 @@
+{
+    "exercise_num": 3,
+    "topic": "Function",
+    "level": "easy",
+    "requirement_title": "Nuclear PowerPlant",
+    "requirement": "This program is used to show a warning message n times\nThe nuclear powerplant at Threeeyedfish will automatically run a program to print a warning message when the reactor core becomes unstable. The warning message reads:\n\nNUCLEAR CORE UNSTABLE!!!\nQuarantine is in effect.\nSurrounding hamlets will be evacuated.\nAnti-radiationsuits and iodine pills are mandatory.\n\nPrint this message n times. Seperate every warning message by a blank line.\n\ninput: Positive integer n which indicates how many times to print\n\nexpected output: n times repeating the warning message with a blank line in between. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs.",
+    "code": {
+        "1": "def print_warning():",
+        "2": "    print(\"NUCLEAR CORE UNSTABLE!!!\")",
+        "3": "    print(\"Quarantine is in effect.\")",
+        "4": "    print(\"Surrounding hamlets will be evacuated.\")",
+        "5": "    print(\"Anti-radiationsuits and iodine pills are mandatory.\")",
+        "6": "",
+        "7": "n = int(input(\"Please enter the number of repeating times: \"))",
+        "8": "for i in range(1,n):",
+        "9": "    print_warning()",
+        "10": "    print()"
+    },
+    "bug_location": ["8"],
+    "correct_version": {
+        "8": "for i in range(n):"
+    },
+    "expected_inputs": [
+        "all"
+    ],
+    "hints": [
+        "Check how many times the program prints the warning message"
+    ]
+}

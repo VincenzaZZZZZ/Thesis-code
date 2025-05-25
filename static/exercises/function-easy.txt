@@ -1,0 +1,20 @@
+Nuclear PowerPlant
+This program is used to show a warning message n times
+The nuclear powerplant at Threeeyedfish will automatically run a program to print a warning message when the reactor core becomes unstable. The warning message reads:
+
+NUCLEAR CORE UNSTABLE!!!
+Quarantine is in effect.
+Surrounding hamlets will be evacuated.
+Anti-radiationsuits and iodine pills are mandatory.
+
+Print this message n times. Seperate every warning message by a blank line.
+
+input: Positive integer n which indicates how many times to print
+
+expected output: n times repeating the warning message with a blank line in between. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs.
+
+Bug location:
+Line 8
+Correct version:
+for i in range(n):
+

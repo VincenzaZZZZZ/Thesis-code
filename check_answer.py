@@ -50,7 +50,7 @@ def check_answer(filename, user_inputs, correct_inputs):
         else:
             input_correct = False
 
-    elif filename == 'loop-easy' or filename == 'sorting-easy' or filename == 'sorting-medium':
+    elif filename == 'loop-easy' or filename == 'function-easy' or filename == 'sorting-easy' or filename == 'sorting-medium':
         if submitted_inputs == correct_inputs:
             input_correct = True
 
