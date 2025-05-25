@@ -4,6 +4,15 @@ def is_prime(n):
             return False
     return True
 
+def bubble_sort_bug(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+    return arr
+
 def check_answer(filename, user_inputs, correct_inputs):
     input_correct = False
 
@@ -40,7 +49,7 @@ def check_answer(filename, user_inputs, correct_inputs):
         else:
             input_correct = False
 
-    elif filename == 'loop-easy':
+    elif filename == 'loop-easy' or filename == 'sorting-easy' or filename == 'sorting-medium':
         if submitted_inputs == correct_inputs:
             input_correct = True
 

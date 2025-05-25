@@ -1,0 +1,12 @@
+Insertion sort
+This program is used to sort the input array into ascending order with insertion sort.
+Insertion sort is a simple comparison-based sorting algorithm that builds the final sorted array one item at a time. It works by repeatedly stepping through the list, comparing each element with the sorted portion to its left and inserting it into the correct position.
+
+input: Array with at least two integer numbers, divided by commas(',')
+
+output: "Sorted list is:" Ascending order array. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs.
+
+Bug location:
+Line 8
+Correct version:
+        arr[j + 1] = key

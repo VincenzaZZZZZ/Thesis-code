@@ -1,0 +1,34 @@
+{
+    "exercise_num": 4,
+    "topic": "Sorting",
+    "level": "medium",
+    "requirement_title": "Insertion sort",
+    "requirement": "This program is used to sort the input array into ascending order with insertion sort.\nInsertion sort is a simple comparison-based sorting algorithm that builds the final sorted array one item at a time. It works by repeatedly stepping through the list, comparing each element with the sorted portion to its left and inserting it into the correct position.\n\ninput: Array with at least two integer numbers, divided by commas(',')\n\noutput: \"Sorted list is:\" Ascending order array. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs.",
+    "code": {
+        "1": "def insertion_sort(arr):",
+        "2": "    for i in range(1, len(arr)):",
+        "3": "        key = arr[i]",
+        "4": "        j = i - 1",
+        "5": "        while j >= 0 and key < arr[j]:",
+        "6": "            arr[j + 1] = arr[j]",
+        "7": "            j -= 1",
+        "8": "",
+        "9": "    return arr",
+        "10": "",
+        "11": "array = input(\"Please enter numbers and seperated by commas: \")",
+        "12": "array = array.split(',')",
+        "13": "",
+        "14": "print(\"Sorted list is:\")",
+        "15": "print(insertion_sort(array))"
+    },
+    "bug_location": ["8"],
+    "correct_version": {
+        "8": "        arr[j + 1] = key"
+    },
+    "expected_inputs": [
+        "all"
+    ],
+    "hints": [
+        "Check the order of the sorted array"
+    ]
+}

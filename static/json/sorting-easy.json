@@ -1,0 +1,33 @@
+{
+    "exercise_num": 4,
+    "topic": "Sorting",
+    "level": "easy",
+    "requirement_title": "Bubble sort",
+    "requirement": "This program is used to sort the input array into ascending order with bubble sort.\nBubble Sort is a basic sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process continues until the list is sorted.\n\ninput: Array with at least two integer numbers, divided by commas(',')\n\noutput: \"Sorted list is:\" Ascending order array. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs.",
+    "code": {
+        "1": "def bubble_sort(arr):",
+        "2": "    n = len(arr)",
+        "3": "    for i in range(n):",
+        "4": "        for j in range(0, n - i - 1):",
+        "5": "            if arr[j] < arr[j + 1]:",
+        "6": "                arr[j], arr[j + 1] = arr[j + 1], arr[j]",
+        "7": "",
+        "8": "    return arr",
+        "9": "",
+        "10": "array = input(\"Please enter numbers and seperated by commas: \")",
+        "11": "array = array.split(',')",
+        "12": "",
+        "13": "print(\"Sorted list is:\")",
+        "14": "print(bubble_sort(array))"
+    },
+    "bug_location": ["5"],
+    "correct_version": {
+        "5": "            if arr[j] > arr[j + 1]:"
+    },
+    "expected_inputs": [
+        "all"
+    ],
+    "hints": [
+        "Check the order of the sorted array"
+    ]
+}
