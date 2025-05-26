@@ -196,7 +196,7 @@
             </select>
         </div>
 
-        <img src="../static/simple-logo.png" alt="small-logo" class="small-logo">
+        <img src="../static/simple-logo.png" alt="small-logo" class="small-logo" id="small-logo">
     </div>
 
     <div id="moth1-set">
@@ -230,6 +230,10 @@
     </div>
 
     <script>
+        document.getElementById('small-logo').addEventListener('click', function () {
+            window.location.href = "/profile"
+        })
+
         document.getElementById('menu-select').addEventListener('change', function () {
             const selected = this.value;
             if (selected) {

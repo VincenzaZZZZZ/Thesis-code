@@ -1,8 +1,10 @@
-from flask import Flask, render_template, redirect, url_for, request, session
+from flask import Flask, render_template, redirect, url_for, request, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import json
+import smtplib
+from email.message import EmailMessage
 from check_answer import check_answer
 
 app = Flask(__name__)
@@ -251,6 +253,27 @@ def exercise(filename):
 
     return render_template('exercise.html', **data, username=session['username'], feedback=feedback, used_hint=used_hint_flag)
 
+@app.route('/report_bug', methods=['POST'])
+def report_bug():
+    data = request.get_json()
+    bug_line = data.get('bug_line')
+    bug_input = data.get('bug_input')
+    username = session.get('username', 'Anonymous')
+
+    message = EmailMessage()
+    message.set_content(f"User: {username}\nBug Line: {bug_line}\nInput: {bug_input}")
+    message['Subject'] = f'Bug Report from {username}'
+    message['From'] = 'info.bughunter2025@gmail.com'
+    message['To'] = 'info.bughunter2025@gmail.com'
+
+    try:
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+            smtp.login('info.bughunter2025@gmail.com', 'owwqoutqqeragzzr')
+            smtp.send_message(message)
+        return jsonify(success=True)
+    except Exception as e:
+        print(f"Email error: {e}")
+        return jsonify(success=False, message=str(e)), 500
 
 if __name__ == '__main__':
     with app.app_context():

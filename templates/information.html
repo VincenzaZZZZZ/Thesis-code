@@ -15,6 +15,9 @@
         body {
             height: 100vh;
             background: linear-gradient(to bottom, #c2e9fb, #a1c4fd);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         #navbar {
@@ -91,22 +94,27 @@
         </div>
     </div>
 
-    <img src="../static/simple-logo.png" alt="small-logo" class="small-logo">
+    <img src="../static/simple-logo.png" alt="small-logo" class="small-logo" id="small-logo">
 
     <h1 id="heading">Information</h1>
 
     <div id="container" >
         <div id="text">
-            This is a web application for learning how to program in Python by debugging. <br>
-            There are three levels: easy (caterpillar) - medium (cocoon) - hard (moth). <br>
-            The level icon is initially black and white. After you pass it, it will become colourful. <br>
-            If you pass the hard level, you will get a moth as a badge ,and you can see them on the badges page. <br>
-            The points are calculated depending on level you passed. You will get 10 points for easy levels, 20 points for medium levels and 30 points for hard levels. If you use the 'HINTS' button, 3 points will be deducted for that level. Every level will have one hint and the points will be only deducted once each level. <br>
-            The points are used to get the rank on the leaderboard. The leaderboard will show the top 5 students. During the debugging, you are expected to find the location of the bug, give the input(s) that leads to incorrect output and correct the given code to make it run properly. If you think your answer is correct, you can use the 'Report a problem' button to upload your answer to let the teacher manually check.
+            This is a web application for learning how to program in Python by debugging. <br><br>
+            There are three levels: easy (caterpillar) - medium (cocoon) - hard (moth). <br><br>
+            The level icon is initially black and white. After you pass it, it will become colourful. <br><br>
+            If you pass the hard level, you will get a moth as a badge, and you can see them on the badges page. <br><br>
+            The points are calculated depending on level you passed. You will get 10 points for easy levels, 20 points for medium levels and 30 points for hard levels. If you use the 'HINTS' button, 3 points will be deducted for that level. Every level will have one hint and the points will be only deducted once each level. <br><br>
+            The points are used to get the rank on the leaderboard. The leaderboard will show the top 5 students. During the debugging, you are expected to find the location of the bug, give the input(s) that leads to incorrect output and correct the given code to make it run properly. If you think your answer is correct, you can use the 'Report a problem' button to upload your answer to let the teacher manually check.<br><br>
+            A dropdown menu is in the top right corner. Profile page, information page, badges page and log out are included in the menu. Profile page can also be accessed by clicking on the logo in top left corner from exercise pages, information page and badges page. Badges page can also be accessed by clicking on the badges section in profile page.
         </div>
     </div>
 
     <script>
+        document.getElementById('small-logo').addEventListener('click', function () {
+            window.location.href = "/profile"
+        })
+
         document.getElementById('menu-select').addEventListener('change', function () {
             const selected = this.value
             if (selected) {

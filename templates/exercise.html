@@ -179,6 +179,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
+
 <body>
     <div id="navbar">
         <div id="nav-right">
@@ -192,7 +193,7 @@
             </select>
         </div>
 
-        <img src="../static/simple-logo.png" alt="small-logo" class="small-logo">
+        <img src="../static/simple-logo.png" alt="small-logo" class="small-logo" id="small-logo">
     </div>
 
     <div id="page-content">
@@ -251,6 +252,10 @@
 
 
     <script>
+        document.getElementById('small-logo').addEventListener('click', function () {
+            window.location.href = "/profile"
+        })
+
         document.getElementById('menu-select').addEventListener('change', function () {
             const selected = this.value;
             if (selected) {
@@ -258,20 +263,41 @@
             }
         })
 
-        document.getElementById('report').addEventListener('click', function (e) {
+        document.getElementById("report").addEventListener("click", function (e) {
             e.preventDefault();
             Swal.fire({
-                title: 'Report a problem',
-                html: `
-                    <p>Please send an email to:</p>
-                    <strong id="email">q3.zhu@student.vu.nl</strong>
-                    <br><br>
-                    <button onclick="copyEmail()" style="margin-top:10px; padding:5px 10px; background-color:#3085d6; color:white; border:none; border-radius:4px;">Copy Email</button>
-                `,
-                icon: 'info',
-                showConfirmButton: false
-            })
-        })
+                title: 'Report a Problem',
+                html:
+                    `<form id="reportForm">
+                        <input type="text" id="bug_line" class="swal2-input" placeholder="Bug location line(s)">
+                        <input type="text" id="bug_input" class="swal2-input" placeholder="Input(s) showing bug">
+                     </form>`,
+                showCancelButton: true,
+                confirmButtonText: 'Send',
+                preConfirm: () => {
+                    const bugLine = document.getElementById('bug_line').value;
+                    const bugInput = document.getElementById('bug_input').value;
+
+                    return fetch('/report_bug', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ bug_line: bugLine, bug_input: bugInput })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.success) throw new Error(data.message);
+                        return data;
+                    })
+                    .catch(error => {
+                        Swal.showValidationMessage(`Failed: ${error}`);
+                    });
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Sent!', 'Your bug report has been sent.', 'success');
+                }
+            });
+        });
 
         function copyEmail() {
             const email = document.getElementById("email").innerText;

@@ -22,8 +22,9 @@
         "15": "else:",
         "16": "    print(\"Land as soon as possible\")"
     },
-    "bug_location": ["10"],
+    "bug_location": ["1","10"],
     "correct_version": {
+        "1": "def total_risk(pressure, wind):",
         "10": "risk = total_risk(wind_speed, pressure)"
     },
     "expected_inputs": [
