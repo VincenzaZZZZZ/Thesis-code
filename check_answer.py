@@ -14,6 +14,16 @@ def quick_sort(arr):
 
     return quick_sort(left) + [pivot] + quick_sort(right)
 
+def count_occurrence(message, letter):
+    count = 0
+
+    for char in message:
+        if char == letter:
+            count += 1
+
+    return count
+
+
 def check_answer(filename, user_inputs, correct_inputs):
     input_correct = False
 
@@ -64,6 +74,19 @@ def check_answer(filename, user_inputs, correct_inputs):
         for num in submitted_ints[3::]:
             if num > third:
                 input_correct = True
+
+    elif filename == 'function-medium':
+        highest_count = 0
+        most_used_letter = ''
+
+        for letter in range(ord('a'), ord('z') + 1):
+            count = count_occurrence(submitted_inputs[0], chr(letter))
+            if count > highest_count:
+                highest_count = count
+                most_used_letter = chr(letter)
+
+        if most_used_letter == 'z':
+            input_correct = True
 
     elif filename == 'function-hard':
         valid_input_count = 0

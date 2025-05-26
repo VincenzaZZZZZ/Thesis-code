@@ -1,0 +1,6 @@
+# Count Letters
+This program will count which letter occurs most often in a message. If multiple letters occur most often, it will print the one that comes first in the alphabet.
+
+input: The message that the letters will be counted in which is a string only contain letters.
+
+expected output: `The letter that appears most often in <message> is <letter>`. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs

@@ -1,0 +1,40 @@
+{
+    "exercise_num": 3,
+    "topic": "Function",
+    "level": "medium",
+    "requirement_title": "Count Letters",
+    "requirement": "This program will count which letter occurs most often in a message. If multiple letters occur most often, it will print the one that comes first in the alphabet.\n\ninput: The message that the letters will be counted in which is a string only contain letters.\n\nexpected output: `The letter that appears most often in <message> is <letter>`. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
+    "code": {
+        "1": "def count_occurrence(message, letter):",
+        "2": "    count = 0",
+        "3": "",
+        "4": "    for char in message:",
+        "5": "        if char == letter:",
+        "6": "            count += 1",
+        "7": "",
+        "8": "    return count",
+        "9": "",
+        "10": "message = input('Enter your message: ')",
+        "11": "",
+        "12": "most_used_letter = 'a'",
+        "13": "highest_count = 0",
+        "14": "",
+        "15": "for letter in range(ord('a'), ord('z')):",
+        "16": "    count = count_occurrence(message, chr(letter))",
+        "17": "    if count > highest_count:",
+        "18": "        highest_count = count",
+        "19": "        most_used_letter = chr(letter)",
+        "20": "",
+        "21": "print(\"The letter that appears most often in %s is %s\" % (message, most_used_letter))"
+    },
+    "bug_location": ["15"],
+    "correct_version": {
+        "15": "for letter in range(ord('a'), ord('z') + 1):"
+    },
+    "expected_inputs": [
+        "aazzzz"
+    ],
+    "hints": [
+        "Check what happen if z is the most used letter in the message"
+    ]
+}
