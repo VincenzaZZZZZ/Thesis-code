@@ -8,4 +8,8 @@ output: Result of adding from 0 to n
 Bug location:
 Line 3
 Correct version:
-for i in range(1,11):
+for i in range(n + 1):
+Expected input:
+all
+Hints:
+Check the range

@@ -5,7 +5,7 @@
     "requirement_title": "Cinema Tickets",
     "requirement": "This program will calculate the ticket price for customers who are coming to watch a movie at the VU cinema. Ticket prices are determined by the age of the customers, as follows:\n\n•\tTickets for people 11 years or below cost €8,50\n•\tTickets for people between 12 and 64 years cost €11,-\n•\tTickets for people 65 years or older cost €9,50\n\nChildren under 4 years old are not allowed in the cinema. When 4 or more tickets are bought at the same time, a 10% family discount is given. The program should print the final price that has to be paid for the tickets.\n\ninput: Ages of the customers, as positive integers separated by commas. `1,2,3,4`\n\nexpected output: `Amount to be paid: <total price> euro`. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
     "code": {
-        "1": "customer_ages = input(\"Please enter customer ages and seperated by commas: \")",
+        "1": "customer_ages = input(\"Please enter customer ages and separated by commas: \")",
         "2": "customer_ages = customer_ages.split(\",\")",
         "3": "total_price = 0",
         "4": "",

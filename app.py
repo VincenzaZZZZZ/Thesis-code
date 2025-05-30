@@ -173,7 +173,7 @@ def profile():
     badge_img = badge_img[:2]
 
     while len(badge_img) < 2:
-        badge_img.append('badges/empty.png')
+        badge_img.append('badges/lock.png')
 
     return render_template('profile.html',
                            username=username,

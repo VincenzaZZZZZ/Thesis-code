@@ -1,12 +1,16 @@
-Smallest number
-This program is used to find the smallest number.
+Largest number
+This program is used to find the largest number.
 
 input: Array of integers separated by commas. There should be at least 2 numbers entered. No duplicate numbers are allowed.
 
-expected output: The program will print the smallest number that was entered.
+expected output: The program will print the largest number that was entered. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs
 
 
 Bug location:
 Line 4
 Correct version:
-smallest = int(array[0])
+largest = int(numbers[0])
+Expected input:
+any array with two or more elements and contains negative numbers
+Hints:
+Check what happens if there is a negative number

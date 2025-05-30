@@ -22,7 +22,7 @@
         "15": "    else:",
         "16": "        return str(grade)",
         "17": "",
-        "18": "grades = input(\"Please enter grades and seperated by commas: \").split(',')",
+        "18": "grades = input(\"Please enter grades and separated by commas: \").split(',')",
         "19": "print(\"The student has a final grade of %s\" % (determine_final_grade(grades)))"
     },
     "bug_location": ["12"],
@@ -33,6 +33,6 @@
         "5.3"
     ],
     "hints": [
-        "Check what happen if average grade is in 5-5.5"
+        "Check what happens if average grade is in 5-5.5"
     ]
 }

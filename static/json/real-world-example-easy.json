@@ -9,7 +9,7 @@
         "2": "    risk = 5 * wind + 4 * pressure",
         "3": "    return risk",
         "4": "",
-        "5": "inputs = input(\"Please enter wind speed and pressure in order, seperated by commas: \")",
+        "5": "inputs = input(\"Please enter wind speed and pressure in order, separated by commas: \")",
         "6": "inputs = inputs.split(',')",
         "7": "wind_speed = int(inputs[0])",
         "8": "pressure = int(inputs[1])",

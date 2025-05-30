@@ -7,7 +7,7 @@ def bubble_sort(arr):
 
     return arr
 
-array = input("Please enter numbers and seperated by commas: ")
+array = input("Please enter numbers and separated by commas: ")
 array = array.split(',')
 
 print("Sorted list is:")

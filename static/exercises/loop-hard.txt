@@ -2,4 +2,14 @@
 This program will determine which number is the third smallest number that was entered.
 
 input: Array of integers separated by commas. There should be at least 3 numbers entered, and the first 3 numbers should be sorted from lowest to highest. No duplicate numbers are allowed.
+
 expected output: The program will print the third smallest number that was entered. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs
+
+Bug location:
+18
+Correct version:
+        elif number < third_smallest:
+Expected output:
+4th or later number have one is larger than 3rd one
+Hints:
+Check what happens if there is a number larger than the third smallest number

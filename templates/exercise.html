@@ -174,6 +174,12 @@
             overflow-y: auto;
             padding-right: 0.5vw;
         }
+
+        #hint-cost {
+            float: right;
+            color: red;
+            margin-right: 3vw;
+        }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -197,7 +203,7 @@
     </div>
 
     <div id="page-content">
-        <h1 id="title">Exercise {{ exercise_num }} : {{ topic }} - {{ level }}</h1>
+        <h1 id="title">Exercise {{ exercise_num }} : {{ topic }} ~ {{ level }}</h1>
 
         <div id="exercise-section">
             <div class="container" id="container-requirement">
@@ -228,8 +234,12 @@
             </div>
         </div>
 
-        <button id="hints">💡HINTS</button>
-        <button id="report">Report a problem</button>
+        <div id="hint-cost">Attention: Using HINTS will cost 3 points</div>
+        <br>
+        <div>
+            <button id="hints">💡HINTS</button>
+            <button id="report">Report a problem</button>
+        </div>
 
         <form method="POST">
             <div id="bug-location">
@@ -239,8 +249,8 @@
 
 
             <div id="bug-input">
-                <div>Which input(s) will show this bug:</div>
-                <input type="text" id="bug-input-text" name="bug-input-text" placeholder="Please enter input(s) and divided by comma(','); for the program which have bug for every inputs, put 'all' here">
+                <div>Which input(s) will detect this bug:</div>
+                <input type="text" id="bug-input-text" name="bug-input-text" placeholder="Please enter input(s) and divided by comma(','); if any input will detect the bug, then specify 'all' here">
             </div>
 
             <div class="center-wrapper">

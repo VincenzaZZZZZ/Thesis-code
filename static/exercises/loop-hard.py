@@ -1,4 +1,4 @@
-numbers = input("Please enter numbers and seperated by commas: ")
+numbers = input("Please enter numbers and separated by commas: ")
 numbers = numbers.split(',')
 
 smallest = int(numbers[0])

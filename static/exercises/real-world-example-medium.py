@@ -15,5 +15,5 @@ def determine_final_grade(grades):
     else:
         return str(grade)
 
-grades = input("Please enter grades and seperated by commas: ").split(',')
+grades = input("Please enter grades and separated by commas: ").split(',')
 print("The student has a final grade of %s" % (determine_final_grade(grades)))

@@ -16,3 +16,7 @@ Bug location:
 Line 3
 Correct version:
 if score >= 90:
+Expected input:
+90
+Hints:
+Check the grade range for Grade A

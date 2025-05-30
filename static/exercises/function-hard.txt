@@ -11,3 +11,7 @@ Bug location:
 Line 9
 Correct version:
     for p in range(2, n + 1):
+Expected input:
+prime number
+Hints:
+Check what happens if the input already is a prime number

@@ -10,3 +10,7 @@ Bug location:
 Line 6
 Correct version:
     left = [x for x in arr[1:] if x <= pivot]
+Expected input:
+duplicate number in input array
+Hints:
+Check what happens if there are duplicate elements

@@ -1,4 +1,4 @@
-inputs = input("Please enter weights and seperated by commas: ")
+inputs = input("Please enter weights and separated by commas: ")
 weights = inputs
 total_costs = 0
 

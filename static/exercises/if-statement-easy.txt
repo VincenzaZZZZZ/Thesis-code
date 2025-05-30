@@ -8,3 +8,7 @@ Bug location:
 Line 5
 Correct version:
     print("Access granted.")
+Expected input:
+0-17
+Hints:
+Check if the access is granted for user under 18

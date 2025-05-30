@@ -10,3 +10,7 @@ Bug location:
 Line 8
 Correct version:
         arr[j + 1] = key
+Expected input:
+all
+Hints:
+Check the order of the sorted array

@@ -11,3 +11,7 @@ Bug location:
 Line 5
 Correct version:
             if array[j] > array[j + 1]:
+Expected input:
+all
+Hints:
+Check the order of the sorted array

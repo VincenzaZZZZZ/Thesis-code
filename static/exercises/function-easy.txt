@@ -7,7 +7,7 @@ Quarantine is in effect.
 Surrounding hamlets will be evacuated.
 Anti-radiationsuits and iodine pills are mandatory.
 
-Print this message n times. Seperate every warning message by a blank line.
+Print this message n times. Separate every warning message by a blank line.
 
 input: Positive integer n which indicates how many times to print
 
@@ -17,4 +17,8 @@ Bug location:
 Line 8
 Correct version:
 for i in range(n):
+Expected input:
+all
+Hints:
+Check how many times the program prints the warning message
 

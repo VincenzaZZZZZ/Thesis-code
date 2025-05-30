@@ -2,7 +2,7 @@ def total_risk(wind, pressure):
     risk = 5 * wind + 4 * pressure
     return risk
 
-inputs = input("Please enter wind speed and pressure in order, seperated by commas: ")
+inputs = input("Please enter wind speed and pressure in order, separated by commas: ")
 inputs = inputs.split(',')
 wind_speed = int(inputs[0])
 pressure = int(inputs[1])

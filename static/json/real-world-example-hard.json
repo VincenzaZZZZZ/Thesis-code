@@ -5,7 +5,7 @@
     "requirement_title": "Post Office",
     "requirement": "This program will calculate how much it will cost to deliver packages. The cost to deliver each individual package is determined by its weight, as follows:\n\n•\tIt costs €4,25 to deliver packages 4 kg or under\n•\tIt costs €12,50 to deliver packages from 5 kg up to 10 kg\n•\tIt costs €28,- to deliver packages that weigh more than 10 kg\n\nWhen 5 or more packages are sent at the same time, a 5% discount is given. The program should print the final price that has to be paid to deliver the packages.\n\ninput: Array of positive integers representing a package weight, separated by commas. Example: `34,21,13,12,6`.\n\nexpected output: `Because you are sending 5 or more packages together, you get a 5% discount!` if 5 or more packages are being sent, and `Amount to be paid: <price> euro` in all cases. Alternatively a relevant custom error message may be shown for invalid input. You may consider non-custom error messages as bugs",
     "code": {
-        "1": "inputs = input(\"Please enter weights and seperated by commas: \")",
+        "1": "inputs = input(\"Please enter weights and separated by commas: \")",
         "2": "weights = inputs",
         "3": "total_costs = 0",
         "4": "",
@@ -34,6 +34,6 @@
         "10000"
     ],
     "hints": [
-        "Check what happen if there are some really heavy packages but still less than five of them"
+        "Check what happens if there are some really heavy packages but still less than five of them"
     ]
 }
